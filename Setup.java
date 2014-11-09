@@ -86,6 +86,7 @@ public class Setup
                 char c =  chars.charAt(R.nextInt(chars.length()));
                 next+=c;
             }
+            //we should probably use loops for some of this
             d.set(1,j,next);
             d.set(2,j,"0");
             d.set(3,j,"0");
