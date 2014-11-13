@@ -60,7 +60,7 @@ public class Setup {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main() {
         FileWriter writer = null;
         try {
             File file = new File("Codes.txt");

@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class BallotUI implements ActionListener {
 
-    private Setup sup;
+    private Setup setup;
     private JButton enter;
     private JButton quit;
     private JButton select;
@@ -16,7 +16,7 @@ public class BallotUI implements ActionListener {
     private JComboBox<String> cands;
     private JLabel instruc;
     private JFrame frame;
-    private FAH f;
+    private FAH helper;
     private String code;
     private boolean valid;
     private String presresult;
@@ -53,17 +53,17 @@ public class BallotUI implements ActionListener {
     }
 
     public void Managment() {
-        sup = new Setup();
-        sup.getDriveVals();
-        f = new FAH(sup.getlink(), sup.getPassword());
-        sup.inputCands();
+        setup = new Setup();
+        setup.getDriveVals();
+        helper = new FAH(setup.getlink(), setup.getPassword());
+        setup.inputCands();
 
     }
 
     public void actionPerformed(ActionEvent e) {
         Object src = e.getSource();
         if (src == enter) {
-            if (f.checkIfValid(codeField.getText())) {
+            if (helper.checkIfValid(codeField.getText())) {
                 valid = true;
                 JOptionPane.showMessageDialog(null, "Success!");
                 code = codeField.getText();
@@ -71,22 +71,22 @@ public class BallotUI implements ActionListener {
                 codeField.setVisible(false);
                 instruc.setVisible(false);
                 //adds candidate selection dialog
-                String[] poptions = sup.getPresCandidates().toArray(new String[sup.getPresCandidates().size()]);
+                String[] poptions = setup.getPresCandidates().toArray(new String[setup.getPresCandidates().size()]);
                 pcands = new JComboBox<String>(poptions);
                 pcands.setEditable(true);
                 frame.add(pcands);
 
-                String[] voptions = sup.getVpCandidates().toArray(new String[sup.getVpCandidates().size()]);
+                String[] voptions = setup.getVpCandidates().toArray(new String[setup.getVpCandidates().size()]);
                 vcands = new JComboBox<String>(voptions);
                 vcands.setEditable(true);
                 frame.add(vcands);
 
-                String[] coptions1 = sup.getCuCandidates().toArray(new String[sup.getCuCandidates().size()]);
+                String[] coptions1 = setup.getCuCandidates().toArray(new String[setup.getCuCandidates().size()]);
                 ccands = new JComboBox<String>(coptions1);
                 ccands.setEditable(true);
                 frame.add(ccands);
 
-                String[] coptions2 = sup.getCuCandidates().toArray(new String[sup.getCuCandidates().size()]);
+                String[] coptions2 = setup.getCuCandidates().toArray(new String[setup.getCuCandidates().size()]);
                 cands = new JComboBox<String>(coptions2);
                 cands.setEditable(true);
                 frame.add(cands);
@@ -101,7 +101,7 @@ public class BallotUI implements ActionListener {
             }
         } else if (src == quit) {
             String input = JOptionPane.showInputDialog(null, "Enter Google Drive Password: ");
-            if (input.equals(sup.getPassword())) {
+            if (input.equals(setup.getPassword())) {
                 System.exit(0);
             } else {
                 JOptionPane.showMessageDialog(frame, "Wrong Password!");
@@ -128,7 +128,7 @@ public class BallotUI implements ActionListener {
                 ballot.vp = vpresult;
                 ballot.cu1 = curesult;
                 ballot.cu2 = result;
-                f.vote(ballot, code);
+                helper.vote(ballot, code);
                 JOptionPane.showMessageDialog(frame, "Vote Submitted");
                 frame.setVisible(false);
                 run();

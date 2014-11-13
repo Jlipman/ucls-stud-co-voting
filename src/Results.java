@@ -41,7 +41,7 @@ public class Results {
         results = new Drive(username, password, "Results");
     }
 
-    public static void main(String[] args) {
+    public static void main() {
         String link = JOptionPane.showInputDialog("Enter Google Acount Username: ");
         while (link == null || link.equals("")) {
             link = JOptionPane.showInputDialog("Enter Google Acount Username: ");
