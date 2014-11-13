@@ -123,7 +123,7 @@ public class BallotUI implements ActionListener
             if(result.equals(curesult)){
                 JOptionPane.showMessageDialog(frame, "You selected the same candidate for both Cultural Union inputs. You must select two different candidates");
             }else{
-                fullBallot ballot = new fullBallot();
+                FullBallot ballot = new FullBallot();
                 ballot.pres=presresult;
                 ballot.vp=vpresult;
                 ballot.cu1=curesult;

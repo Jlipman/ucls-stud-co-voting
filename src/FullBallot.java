@@ -1,11 +1,11 @@
 
-public class fullBallot
+public class FullBallot
 {
     public String pres;
     public String vp;
     public String cu1;
     public String cu2;
-    public fullBallot()
+    public FullBallot()
     {
         pres="";
         vp="";

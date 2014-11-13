@@ -73,7 +73,7 @@ public class FAH
         return false;
     }
 
-    public void vote(fullBallot who, String username) {
+    public void vote(FullBallot who, String username) {
         
         String RCNotation = ID.getId().substring(ID.getId().lastIndexOf('/') + 1);
 
