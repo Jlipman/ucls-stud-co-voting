@@ -124,10 +124,10 @@ public class BallotUI implements ActionListener {
                 JOptionPane.showMessageDialog(frame, "You selected the same candidate for both Cultural Union inputs. You must select two different candidates");
             } else {
                 FullBallot ballot = new FullBallot();
-                ballot.pres = presresult;
-                ballot.vp = vpresult;
-                ballot.cu1 = curesult;
-                ballot.cu2 = result;
+                ballot.setPres(presresult);
+                ballot.setVp(vpresult);
+                ballot.setCu1(curesult);
+                ballot.setCu2(result);
                 helper.vote(ballot, code);
                 JOptionPane.showMessageDialog(frame, "Vote Submitted");
                 frame.setVisible(false);

@@ -79,9 +79,9 @@ public class FAH {
         String RCNotation = ID.getId().substring(ID.getId().lastIndexOf('/') + 1);
 
         int y = Integer.parseInt(RCNotation.substring(1, RCNotation.indexOf("C")));
-        pass.set(2, y, who.pres);
-        pass.set(3, y, who.vp);
-        pass.set(4, y, who.cu1);
-        pass.set(5, y, who.cu2);
+        pass.set(2, y, who.getPres());
+        pass.set(3, y, who.getVp());
+        pass.set(4, y, who.getCu1());
+        pass.set(5, y, who.getCu2());
     }
 }
