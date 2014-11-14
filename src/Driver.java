@@ -17,11 +17,11 @@ public class Driver {
      */
     public static void main(String[] args) {
         String input = JOptionPane.showInputDialog("Choose: Driver, Setup, or Results");
-        if(input.equals("Driver")){
+        if(input.equalsIgnoreCase("Driver")){
             StudentVoter.main();
-        }else if (input.equals("Setup")){
+        }else if (input.equalsIgnoreCase("Setup")){
             Setup.main();
-        }else if (input.equals("Results")){
+        }else if (input.equalsIgnoreCase("Results")){
             Results.main();
         }else{
             JOptionPane.showMessageDialog(null, "Not a valid choice");
