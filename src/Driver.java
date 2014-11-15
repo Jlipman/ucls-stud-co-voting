@@ -91,14 +91,17 @@ public class Driver extends javax.swing.JFrame {
     }//GEN-LAST:event_SetupBStateChanged
 
     private void SetupBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SetupBMouseClicked
+        this.dispose();
         Setup.main();
     }//GEN-LAST:event_SetupBMouseClicked
 
     private void StudentVoterBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StudentVoterBMouseClicked
+        this.dispose();
         StudentVoter.main();
     }//GEN-LAST:event_StudentVoterBMouseClicked
 
     private void ResultsBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResultsBMouseClicked
+        this.dispose();
         Results.main();
     }//GEN-LAST:event_ResultsBMouseClicked
 
