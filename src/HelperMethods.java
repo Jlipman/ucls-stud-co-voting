@@ -31,14 +31,14 @@ import java.io.IOException;
 import java.net.*;
 import java.util.ArrayList;
 
-public class FAH {
+public class HelperMethods {
 
     private Drive pass;
     private CellEntry ID;
     private ArrayList<CellEntry> queue, votes;
     private Results results;
 
-    public FAH(String username, String password) {
+    public HelperMethods(String username, String password) {
         pass = new Drive(username, password, "Election");
         results = new Results(username, password);
         queue = new ArrayList<CellEntry>();

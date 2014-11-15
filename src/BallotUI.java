@@ -16,7 +16,7 @@ public class BallotUI implements ActionListener {
     private JComboBox<String> cands;
     private JLabel instruc;
     private JFrame frame;
-    private FAH helper;
+    private HelperMethods helper;
     private String code;
     private boolean valid;
     private String presresult;
@@ -55,7 +55,7 @@ public class BallotUI implements ActionListener {
     public void Managment() {
         setup = new Setup();
         setup.getDriveVals();
-        helper = new FAH(setup.getlink(), setup.getPassword());
+        helper = new HelperMethods(setup.getlink(), setup.getPassword());
         setup.inputCands();
 
     }

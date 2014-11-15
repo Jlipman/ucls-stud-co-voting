@@ -43,4 +43,6 @@ public class FullBallot {
     public void setCu2(String cu2) {
         this.cu2 = cu2;
     }
+
+  
 }
