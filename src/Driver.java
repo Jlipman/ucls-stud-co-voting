@@ -25,27 +25,37 @@ public class Driver extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Setup = new javax.swing.JButton();
-        StudentVoter = new javax.swing.JButton();
-        Results = new javax.swing.JButton();
+        SetupB = new javax.swing.JButton();
+        StudentVoterB = new javax.swing.JButton();
+        ResultsB = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Setup.setText("Run Setup");
-        Setup.addChangeListener(new javax.swing.event.ChangeListener() {
+        SetupB.setText("Run Setup");
+        SetupB.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                SetupStateChanged(evt);
+                SetupBStateChanged(evt);
             }
         });
-        Setup.addMouseListener(new java.awt.event.MouseAdapter() {
+        SetupB.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                SetupMouseClicked(evt);
+                SetupBMouseClicked(evt);
             }
         });
 
-        StudentVoter.setText("Run Student Voter");
+        StudentVoterB.setText("Run Student Voter");
+        StudentVoterB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                StudentVoterBMouseClicked(evt);
+            }
+        });
 
-        Results.setText("Run Results");
+        ResultsB.setText("Run Results");
+        ResultsB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ResultsBMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -54,36 +64,43 @@ public class Driver extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(96, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Results)
+                    .addComponent(ResultsB)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addComponent(StudentVoter))
-                    .addComponent(Setup))
+                        .addComponent(StudentVoterB))
+                    .addComponent(SetupB))
                 .addGap(141, 141, 141))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(105, 105, 105)
-                .addComponent(Setup)
+                .addComponent(SetupB)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(StudentVoter)
+                .addComponent(StudentVoterB)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Results)
+                .addComponent(ResultsB)
                 .addContainerGap(96, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SetupStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SetupStateChanged
+    private void SetupBStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SetupBStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_SetupStateChanged
+    }//GEN-LAST:event_SetupBStateChanged
 
-    private void SetupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SetupMouseClicked
+    private void SetupBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SetupBMouseClicked
         Setup.main();
-// TODO add your handling code here:
-    }//GEN-LAST:event_SetupMouseClicked
+    }//GEN-LAST:event_SetupBMouseClicked
+
+    private void StudentVoterBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StudentVoterBMouseClicked
+        StudentVoter.main();
+    }//GEN-LAST:event_StudentVoterBMouseClicked
+
+    private void ResultsBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResultsBMouseClicked
+        Results.main();
+    }//GEN-LAST:event_ResultsBMouseClicked
 
     /**
      * @param args the command line arguments
@@ -120,9 +137,10 @@ public class Driver extends javax.swing.JFrame {
         });
     }
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Results;
-    private javax.swing.JButton Setup;
-    private javax.swing.JButton StudentVoter;
+    private javax.swing.JButton ResultsB;
+    private javax.swing.JButton SetupB;
+    private javax.swing.JButton StudentVoterB;
     // End of variables declaration//GEN-END:variables
 }
