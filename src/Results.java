@@ -70,53 +70,53 @@ public class Results {
                 break;
             } else {
                 if (!current[0].equals("0")) {
-                    boolean foo = false;
+                    boolean voteAdded = false;
                     for (int u = 0; u < pcandidates.size(); u++) {
                         if (pcandidates.get(u).equals(current[0])) {
                             ptally.set(u, ptally.get(u) + 1);
-                            foo = true;
+                            voteAdded = true;
                         }
                     }
-                    if (!foo) {
+                    if (!voteAdded) {
                         pcandidates.add(current[0]);
                         ptally.add(1);
                     }
                 }
                 if (!current[1].equals("0")) {
-                    boolean foo = false;
+                    boolean voteAdded = false;
                     for (int u = 0; u < vcandidates.size(); u++) {
                         if (vcandidates.get(u).equals(current[1])) {
                             vtally.set(u, vtally.get(u) + 1);
-                            foo = true;
+                            voteAdded = true;
                         }
                     }
-                    if (!foo) {
+                    if (!voteAdded) {
                         vcandidates.add(current[1]);
                         vtally.add(1);
                     }
                 }
                 if (!current[2].equals("0")) {
-                    boolean foo = false;
+                    boolean voteAdded = false;
                     for (int u = 0; u < ccandidates.size(); u++) {
                         if (ccandidates.get(u).equals(current[2])) {
                             ctally.set(u, ctally.get(u) + 1);
-                            foo = true;
+                            voteAdded = true;
                         }
                     }
-                    if (!foo) {
+                    if (!voteAdded) {
                         ccandidates.add(current[2]);
                         ctally.add(1);
                     }
                 }
                 if (!current[3].equals("0")) {
-                    boolean foo = false;
+                    boolean voteAdded = false;
                     for (int u = 0; u < ccandidates.size(); u++) {
                         if (ccandidates.get(u).equals(current[3])) {
                             ctally.set(u, ctally.get(u) + 1);
-                            foo = true;
+                            voteAdded = true;
                         }
                     }
-                    if (!foo) {
+                    if (!voteAdded) {
                         ccandidates.add(current[3]);
                         ctally.add(1);
                     }
