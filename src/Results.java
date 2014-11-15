@@ -51,6 +51,7 @@ public class Results {
             password = JOptionPane.showInputDialog("Please Enter Acount Password: ");
         }
         Drive results = new Drive(link, password, "Election");
+        ArrayList[][] test = new ArrayList[4][2];
         ArrayList<String> pcandidates = new ArrayList<String>();
         ArrayList<Integer> ptally = new ArrayList<Integer>();
         ArrayList<String> vcandidates = new ArrayList<String>();

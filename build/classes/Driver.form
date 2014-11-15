@@ -26,12 +26,12 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace pref="96" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Results" min="-2" max="-2" attributes="0"/>
+                  <Component id="ResultsB" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                      <Component id="StudentVoter" min="-2" max="-2" attributes="0"/>
+                      <Component id="StudentVoterB" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="Setup" min="-2" max="-2" attributes="0"/>
+                  <Component id="SetupB" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
           </Group>
@@ -41,35 +41,41 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
-              <Component id="Setup" min="-2" max="-2" attributes="0"/>
+              <Component id="SetupB" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="StudentVoter" min="-2" max="-2" attributes="0"/>
+              <Component id="StudentVoterB" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="Results" min="-2" max="-2" attributes="0"/>
+              <Component id="ResultsB" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="96" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="Setup">
+    <Component class="javax.swing.JButton" name="SetupB">
       <Properties>
         <Property name="text" type="java.lang.String" value="Run Setup"/>
       </Properties>
       <Events>
-        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="SetupStateChanged"/>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="SetupMouseClicked"/>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="SetupBStateChanged"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="SetupBMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="StudentVoter">
+    <Component class="javax.swing.JButton" name="StudentVoterB">
       <Properties>
         <Property name="text" type="java.lang.String" value="Run Student Voter"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="StudentVoterBMouseClicked"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Results">
+    <Component class="javax.swing.JButton" name="ResultsB">
       <Properties>
         <Property name="text" type="java.lang.String" value="Run Results"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ResultsBMouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
