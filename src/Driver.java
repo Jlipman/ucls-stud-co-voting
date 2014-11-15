@@ -25,83 +25,65 @@ public class Driver extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        Setup = new javax.swing.JButton();
+        StudentVoter = new javax.swing.JButton();
+        Results = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        buttonGroup1.add(jRadioButton4);
-        jRadioButton4.setText("Student Voter");
-        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton4ActionPerformed(evt);
-            }
-        });
-
-        buttonGroup1.add(jRadioButton5);
-        jRadioButton5.setText("Setup");
-
-        buttonGroup1.add(jRadioButton6);
-        jRadioButton6.setText("Results");
-
-        jButton1.setText("jButton1");
-        jButton1.addChangeListener(new javax.swing.event.ChangeListener() {
+        Setup.setText("Run Setup");
+        Setup.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jButton1StateChanged(evt);
+                SetupStateChanged(evt);
             }
         });
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        Setup.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                SetupMouseClicked(evt);
             }
         });
+
+        StudentVoter.setText("Run Student Voter");
+
+        Results.setText("Run Results");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jRadioButton6)
-                    .addComponent(jRadioButton4)
-                    .addComponent(jRadioButton5, javax.swing.GroupLayout.Alignment.LEADING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(54, 54, 54))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(96, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Results)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(StudentVoter))
+                    .addComponent(Setup))
+                .addGap(141, 141, 141))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(140, 140, 140)
-                .addComponent(jRadioButton4)
+                .addGap(105, 105, 105)
+                .addComponent(Setup)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jRadioButton5))
+                .addComponent(StudentVoter)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton6)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addComponent(Results)
+                .addContainerGap(96, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+    private void SetupStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_SetupStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton4ActionPerformed
+    }//GEN-LAST:event_SetupStateChanged
 
-    private void jButton1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jButton1StateChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1StateChanged
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        buttonModel whichButton = buttonGroup1.getSelection();
+    private void SetupMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SetupMouseClicked
+        Setup.main();
 // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_SetupMouseClicked
 
     /**
      * @param args the command line arguments
@@ -139,10 +121,8 @@ public class Driver extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
+    private javax.swing.JButton Results;
+    private javax.swing.JButton Setup;
+    private javax.swing.JButton StudentVoter;
     // End of variables declaration//GEN-END:variables
 }
