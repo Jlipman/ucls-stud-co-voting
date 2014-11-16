@@ -71,30 +71,7 @@ public class BallotUI implements ActionListener {
                 codeField.setVisible(false);
                 instruc.setVisible(false);
                 //adds candidate selection dialog
-                String[] poptions = setup.getPresCandidates().toArray(new String[setup.getPresCandidates().size()]);
-                pcands = new JComboBox<String>(poptions);
-                pcands.setEditable(true);
-                frame.add(pcands);
-
-                String[] voptions = setup.getVpCandidates().toArray(new String[setup.getVpCandidates().size()]);
-                vcands = new JComboBox<String>(voptions);
-                vcands.setEditable(true);
-                frame.add(vcands);
-
-                String[] coptions1 = setup.getCuCandidates().toArray(new String[setup.getCuCandidates().size()]);
-                ccands = new JComboBox<String>(coptions1);
-                ccands.setEditable(true);
-                frame.add(ccands);
-
-                String[] coptions2 = setup.getCuCandidates().toArray(new String[setup.getCuCandidates().size()]);
-                cands = new JComboBox<String>(coptions2);
-                cands.setEditable(true);
-                frame.add(cands);
-
-                select = new JButton("Vote");
-                select.addActionListener(this);
-
-                frame.add(select);
+                setupCandidateSelection();
 
             } else {
                 instruc.setText("You must have already voted or entered your ID in wrong");
@@ -118,6 +95,32 @@ public class BallotUI implements ActionListener {
         }
     }
 
+    private void setupCandidateSelection(){
+        String[] poptions = setup.getPresCandidates().toArray(new String[setup.getPresCandidates().size()]);
+        pcands = new JComboBox<String>(poptions);
+        pcands.setEditable(true);
+        frame.add(pcands);
+
+        String[] voptions = setup.getVpCandidates().toArray(new String[setup.getVpCandidates().size()]);
+        vcands = new JComboBox<String>(voptions);
+        vcands.setEditable(true);
+        frame.add(vcands);
+
+        String[] coptions1 = setup.getCuCandidates().toArray(new String[setup.getCuCandidates().size()]);
+        ccands = new JComboBox<String>(coptions1);
+        ccands.setEditable(true);
+        frame.add(ccands);
+
+        String[] coptions2 = setup.getCuCandidates().toArray(new String[setup.getCuCandidates().size()]);
+        cands = new JComboBox<String>(coptions2);
+        cands.setEditable(true);
+        frame.add(cands);
+
+        select = new JButton("Vote");
+        select.addActionListener(this);
+
+        frame.add(select);
+    }
     public void voter() {
         if ((!(presresult.equals("(Select Presedential Candidate or type in a write in)"))) || (!(vpresult.equals("(Select Vice Presidential Candidate or type in a write in)"))) || (!(curesult.equals("(Select Cultural Union Candidate or type in a write in)"))) || (!(result.equals("(Select Cultural Union Candidate or type in a write in)")))) {
             if (result.equals(curesult)) {

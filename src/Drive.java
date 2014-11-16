@@ -1,34 +1,12 @@
-import com.google.gdata.client.authn.oauth.*;
-import com.google.gdata.client.spreadsheet.*;
-import com.google.gdata.data.*;
-import com.google.gdata.data.batch.*;
-import com.google.gdata.data.spreadsheet.*;
-import com.google.gdata.util.*;
-import com.google.gdata.client.authn.oauth.GoogleOAuthHelper;
-import com.google.gdata.client.authn.oauth.GoogleOAuthParameters;
-import com.google.gdata.client.authn.oauth.OAuthHmacSha1Signer;
-import com.google.gdata.client.authn.oauth.OAuthRsaSha1Signer;
-import com.google.gdata.client.authn.oauth.OAuthSigner;
-import com.google.gdata.client.spreadsheet.*;
-import com.google.gdata.data.Link;
-import com.google.gdata.data.batch.BatchOperationType;
-import com.google.gdata.data.batch.BatchStatus;
-import com.google.gdata.data.batch.BatchUtils;
-import com.google.gdata.data.spreadsheet.*;
-import com.google.gdata.util.*;
-import java.io.IOException;
-import java.net.*;
-import java.util.*;
-import java.io.IOException;
-import java.net.*;
-import java.util.*;
-
-import com.google.gdata.client.spreadsheet.*;
-import com.google.gdata.data.spreadsheet.*;
-import com.google.gdata.util.*;
-
-import java.io.IOException;
-import java.net.*;
+import com.google.gdata.client.spreadsheet.SpreadsheetService;
+import com.google.gdata.data.spreadsheet.CellEntry;
+import com.google.gdata.data.spreadsheet.CellFeed;
+import com.google.gdata.data.spreadsheet.SpreadsheetEntry;
+import com.google.gdata.data.spreadsheet.SpreadsheetFeed;
+import com.google.gdata.data.spreadsheet.WorksheetEntry;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Drive {
 
