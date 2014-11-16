@@ -28,8 +28,13 @@ public class Driver extends javax.swing.JFrame {
         SetupB = new javax.swing.JButton();
         StudentVoterB = new javax.swing.JButton();
         ResultsB = new javax.swing.JButton();
+        SchoolLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 0, 0));
+        setMinimumSize(new java.awt.Dimension(500, 500));
+        setName("Start Menu"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(764, 500));
 
         SetupB.setText("Run Setup");
         SetupB.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -57,30 +62,40 @@ public class Driver extends javax.swing.JFrame {
             }
         });
 
+        SchoolLogo.setBackground(new java.awt.Color(153, 0, 0));
+        SchoolLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        SchoolLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SchoolLogo.gif"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(SetupB)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ResultsB)
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(96, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ResultsB)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(StudentVoterB))
-                    .addComponent(SetupB))
-                .addGap(141, 141, 141))
+                .addContainerGap(147, Short.MAX_VALUE)
+                .addComponent(SchoolLogo)
+                .addContainerGap(147, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(StudentVoterB)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(105, 105, 105)
-                .addComponent(SetupB)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(26, 26, 26)
+                .addComponent(SchoolLogo)
+                .addGap(36, 36, 36)
                 .addComponent(StudentVoterB)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ResultsB)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SetupB)
+                    .addComponent(ResultsB))
+                .addContainerGap())
         );
 
         pack();
@@ -143,6 +158,7 @@ public class Driver extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ResultsB;
+    private javax.swing.JLabel SchoolLogo;
     private javax.swing.JButton SetupB;
     private javax.swing.JButton StudentVoterB;
     // End of variables declaration//GEN-END:variables
