@@ -58,14 +58,7 @@ public class Setup {
     public static void main() {
         
  
-        FileWriter writer = null;
-        try {
-            File file = new File("Codes.txt");
-            file.createNewFile();
-            writer = new FileWriter(file);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+        
         ArrayList<String> foo = new ArrayList<String>();
         String link = JOptionPane.showInputDialog("Enter Google Acount Username: ");
         while (link == null || link.equals("")) {
@@ -75,8 +68,22 @@ public class Setup {
         while (password == null || link.equals("")) {
             password = JOptionPane.showInputDialog("Please Enter Acount Password: ");
         }
-        Drive d = new Drive(link, password, "Election");
+        Drive d;
+        try{
+            d = new Drive(link, password, "Election");
+        }catch(Exception e){
+            main();
+            return;
+        }
         Random R = new Random();
+        FileWriter writer = null;
+        try {
+            File file = new File("Codes.txt");
+            file.createNewFile();
+            writer = new FileWriter(file);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
         String chars = "1234567890qwertyuiopasdfghjkzxcvbnmQWERTYUOPASFGHJKLZXCVBNM";
         int length = 0;
 
@@ -146,7 +153,12 @@ public class Setup {
         while (password == null || link.equals("")) {
             password = JOptionPane.showInputDialog("Please Enter Acount Password: ");
         }
-        d = new Drive(link, password, "Election");
+        try{
+            d = new Drive(link, password, "Election");
+        }catch(Exception e){
+            getDriveVals();
+        }
+        
     }
 
     public String getPassword() {

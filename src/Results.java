@@ -1,3 +1,4 @@
+
 import com.google.gdata.client.authn.oauth.*;
 import com.google.gdata.client.spreadsheet.*;
 import com.google.gdata.data.*;
@@ -49,6 +50,13 @@ public class Results {
         String password = JOptionPane.showInputDialog("Enter Google Acount Password: ");
         while (password == null || link.equals("")) {
             password = JOptionPane.showInputDialog("Please Enter Acount Password: ");
+        }
+        Drive d;
+        try{
+            d = new Drive(link, password, "Election");
+        }catch(Exception e){
+            main();
+            return;
         }
         Drive results = new Drive(link, password, "Election");
         ArrayList[][] test = new ArrayList[4][2];
