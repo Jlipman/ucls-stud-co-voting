@@ -35,8 +35,12 @@ public class CodeValidationGUI extends javax.swing.JFrame {
 
         Submit = new javax.swing.JButton();
         codeEntry = new javax.swing.JTextField();
+        quit = new javax.swing.JButton();
+        SchoolLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 0, 0));
+        setLocation(new java.awt.Point(100, 100));
 
         Submit.setText("Enter");
         Submit.addActionListener(new java.awt.event.ActionListener() {
@@ -58,25 +62,46 @@ public class CodeValidationGUI extends javax.swing.JFrame {
             }
         });
 
+        quit.setText("End Voting");
+        quit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                quitMouseClicked(evt);
+            }
+        });
+
+        SchoolLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SchoolLogo.gif"))); // NOI18N
+        SchoolLogo.setText("jLabel1");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(codeEntry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
-                .addComponent(Submit)
-                .addGap(111, 111, 111))
+                .addContainerGap(260, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(codeEntry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Submit))
+                    .addComponent(SchoolLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(354, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(quit, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(198, 198, 198)
+                .addGap(18, 18, 18)
+                .addComponent(SchoolLogo)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(codeEntry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Submit))
-                .addContainerGap(105, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
+                .addComponent(quit, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -89,12 +114,22 @@ public class CodeValidationGUI extends javax.swing.JFrame {
     private void codeEntryKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codeEntryKeyTyped
         if(evt.getKeyCode()==13){
             vote();
+            System.out.println("fp");
         }
     }//GEN-LAST:event_codeEntryKeyTyped
 
     private void codeEntryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_codeEntryMouseClicked
         codeEntry.setText("");
     }//GEN-LAST:event_codeEntryMouseClicked
+
+    private void quitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quitMouseClicked
+        String input = JOptionPane.showInputDialog(null, "Enter Google Drive Password: ");
+        if (input.equals(setup.getPassword())) {
+            System.exit(0);
+        } else {
+            JOptionPane.showMessageDialog(this, "Wrong Password!");
+        }
+    }//GEN-LAST:event_quitMouseClicked
     
     private void vote(){
         if (helper.checkIfValid(codeEntry.getText())) {
@@ -149,8 +184,10 @@ public class CodeValidationGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel SchoolLogo;
     private javax.swing.JButton Submit;
     private javax.swing.JTextField codeEntry;
+    private javax.swing.JButton quit;
     // End of variables declaration//GEN-END:variables
 
 }
