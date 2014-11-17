@@ -40,7 +40,7 @@
                   <Component id="codeEntry" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Submit" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="103" max="32767" attributes="0"/>
+              <EmptySpace pref="105" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -57,8 +57,10 @@
     <Component class="javax.swing.JTextField" name="codeEntry">
       <Properties>
         <Property name="text" type="java.lang.String" value="Enter your 6 digit code"/>
+        <Property name="opaque" type="boolean" value="true"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="codeEntryMouseClicked"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="codeEntryKeyTyped"/>
       </Events>
     </Component>

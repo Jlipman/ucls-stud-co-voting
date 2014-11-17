@@ -32,6 +32,7 @@ public class Driver extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 0, 0));
+        setLocation(new java.awt.Point(100, 100));
         setMinimumSize(new java.awt.Dimension(500, 500));
         setName("Start Menu"); // NOI18N
         setPreferredSize(new java.awt.Dimension(764, 500));
@@ -75,10 +76,10 @@ public class Driver extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ResultsB)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(147, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(148, Short.MAX_VALUE)
                 .addComponent(SchoolLogo)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addContainerGap(148, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(StudentVoterB)
@@ -112,7 +113,11 @@ public class Driver extends javax.swing.JFrame {
 
     private void StudentVoterBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StudentVoterBMouseClicked
         this.dispose();
-        StudentVoter.main();
+        Setup setup = new Setup();
+        setup.getDriveVals();
+        HelperMethods helper = new HelperMethods(setup.getlink(), setup.getPassword());
+        setup.inputCands();
+        CodeValidationGUI.main(setup, helper);
     }//GEN-LAST:event_StudentVoterBMouseClicked
 
     private void ResultsBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResultsBMouseClicked

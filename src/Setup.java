@@ -6,7 +6,6 @@ import javax.swing.JOptionPane;
 import java.nio.file.Path;
 import java.util.Scanner;
 import java.nio.file.Paths;
-import java.io.IOException;
 
 /**
  * Write a description of class Setup here.
@@ -35,7 +34,7 @@ public class Setup {
         password = "";
     }
 
-    public void inputCands() throws IOException{
+    public void inputCands(){
         int position=0;
         Path path = Paths.get("candidates.txt");
         try (Scanner scanner =  new Scanner(path)){
@@ -51,37 +50,10 @@ public class Setup {
                   cuc.add(line);
               }
           }      
-        }
-      
-        /*
-        inputPres();
-        inputVp();
-        inputCu();*/
+        }catch(Exception e){}
     }
 
-    public void inputPres() {
-        String input = JOptionPane.showInputDialog("Enter the names of the presidential candidates: ");
-        if (input != null && !input.equals("")) {
-            presc.add(input);
-            inputPres();
-        }
-    }
-
-    public void inputVp() {
-        String input = JOptionPane.showInputDialog("Enter the names of the vice presidential candidates: ");
-        if (input != null && !input.equals("")) {
-            vpc.add(input);
-            inputVp();
-        }
-    }
-
-    public void inputCu() {
-        String input = JOptionPane.showInputDialog("Enter the names of of the cultural union candidates: ");
-        if (input != null && !input.equals("")) {
-            cuc.add(input);
-            inputCu();
-        }
-    }
+ 
 
     public static void main() {
         
@@ -129,6 +101,8 @@ public class Setup {
             foo.add(next);
             length = j;
             System.out.println(j + "/" + (numberOfVoters));
+           
+            
             
         }
         for(int i=1; i<6; i++){

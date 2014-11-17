@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,12 +12,16 @@
  */
 //Large work in progress
 public class CodeValidationGUI extends javax.swing.JFrame {
-
+    private Setup setup;
+    private HelperMethods helper;
+    private String code;
     /**
      * Creates new form CodeValidationGUI
      */
-    public CodeValidationGUI() {
+    public CodeValidationGUI(Setup toSetup, HelperMethods h) {
         initComponents();
+        setup=toSetup;
+        helper=h;
     }
 
     /**
@@ -39,6 +46,12 @@ public class CodeValidationGUI extends javax.swing.JFrame {
         });
 
         codeEntry.setText("Enter your 6 digit code");
+        codeEntry.setOpaque(true);
+        codeEntry.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                codeEntryMouseClicked(evt);
+            }
+        });
         codeEntry.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 codeEntryKeyTyped(evt);
@@ -63,26 +76,47 @@ public class CodeValidationGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(codeEntry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Submit))
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
-        // TODO add your handling code here:
+        vote();
     }//GEN-LAST:event_SubmitActionPerformed
 
     private void codeEntryKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codeEntryKeyTyped
         if(evt.getKeyCode()==13){
-            
+            vote();
         }
     }//GEN-LAST:event_codeEntryKeyTyped
 
+    private void codeEntryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_codeEntryMouseClicked
+        codeEntry.setText("");
+    }//GEN-LAST:event_codeEntryMouseClicked
+    
+    private void vote(){
+        if (helper.checkIfValid(codeEntry.getText())) {
+               
+                JOptionPane.showMessageDialog(null, "Success!");
+                code = codeEntry.getText();
+                this.dispose();
+                //adds candidate selection dialog
+                
+                
+                main(setup, helper);
+                VoterGUI.main(setup, helper, code);
+
+            } else {
+                JOptionPane.showMessageDialog(this,"You must have already voted or entered your ID in wrong");
+            }
+        
+    }
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(Setup toSetup, HelperMethods h) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -105,11 +139,11 @@ public class CodeValidationGUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(CodeValidationGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CodeValidationGUI().setVisible(true);
+                new CodeValidationGUI(toSetup, h).setVisible(true);
             }
         });
     }
