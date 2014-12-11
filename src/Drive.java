@@ -14,6 +14,7 @@ public class Drive {
     SpreadsheetEntry spreadsheet;
     WorksheetEntry worksheet;
     SpreadsheetFeed feed;
+    URL cellFeedUrl;
 
     //password: notasecret
 
@@ -48,7 +49,7 @@ public class Drive {
 
     public void set(int x, int y, String value) {
         try {
-            URL cellFeedUrl = worksheet.getCellFeedUrl();
+            cellFeedUrl = worksheet.getCellFeedUrl();
             CellFeed cellFeed = service.getFeed(cellFeedUrl, CellFeed.class);
             for (CellEntry cell : cellFeed.getEntries()) {
                 if (cell.getId().substring(cell.getId().lastIndexOf('/') + 1).equals("R" + y + "C" + x)) {
@@ -65,8 +66,7 @@ public class Drive {
     public String get(int x, int y) {
         String values = "";
         try {
-
-            URL cellFeedUrl = worksheet.getCellFeedUrl();
+            cellFeedUrl = worksheet.getCellFeedUrl();
             CellFeed cellFeed = service.getFeed(cellFeedUrl, CellFeed.class);
             for (CellEntry cell : cellFeed.getEntries()) {
                 if (cell.getId().substring(cell.getId().lastIndexOf('/') + 1).equals("R" + y + "C" + x)) {
@@ -84,7 +84,7 @@ public class Drive {
     public ArrayList<CellEntry> getList() {
         ArrayList<CellEntry> foo = new ArrayList<CellEntry>();
         try {
-            URL cellFeedUrl = worksheet.getCellFeedUrl();
+            cellFeedUrl = worksheet.getCellFeedUrl();
             CellFeed cellFeed = service.getFeed(cellFeedUrl, CellFeed.class);
 
             for (CellEntry cell : cellFeed.getEntries()) {
@@ -95,5 +95,17 @@ public class Drive {
             System.out.println(e);
         }
         return foo;
+    }
+
+    public boolean testConnection() {
+       try {
+           cellFeedUrl = worksheet.getCellFeedUrl();
+            CellFeed cellFeed = service.getFeed(cellFeedUrl, CellFeed.class);
+
+            return true;
+
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

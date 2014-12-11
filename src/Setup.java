@@ -55,26 +55,17 @@ public class Setup {
 
  
 
-    public static void main() {
+    public static void main(String U, String P) {
         
  
         
         ArrayList<String> foo = new ArrayList<String>();
-        String link = JOptionPane.showInputDialog("Enter Google Acount Username: ");
-        while (link == null || link.equals("")) {
-            link = JOptionPane.showInputDialog("Enter Google Acount Username: ");
-        }
-        String password = JOptionPane.showInputDialog("Enter Google Acount Password: ");
-        while (password == null || link.equals("")) {
-            password = JOptionPane.showInputDialog("Please Enter Acount Password: ");
-        }
+        String link=U;
+        String password=P;
         Drive d;
-        try{
-            d = new Drive(link, password, "Election");
-        }catch(Exception e){
-            main();
-            return;
-        }
+
+        d = new Drive(link, password, "Election");
+
         Random R = new Random();
         FileWriter writer = null;
         try {
@@ -144,28 +135,35 @@ public class Setup {
         return cuc;
     }
 
-    public void getDriveVals() {
-        link = JOptionPane.showInputDialog("Enter Google Acount Username: ");
-        while (link == null || link.equals("")) {
-            link = JOptionPane.showInputDialog("Enter Google Acount Username: ");
-        }
-        password = JOptionPane.showInputDialog("Enter Google Acount Password: ");
-        while (password == null || link.equals("")) {
-            password = JOptionPane.showInputDialog("Please Enter Acount Password: ");
-        }
-        try{
-            d = new Drive(link, password, "Election");
-        }catch(Exception e){
-            getDriveVals();
+    public void getDriveVals(String U, String P) {
+        link = U;
+        
+        password = P;
+
+        d = new Drive(link, password, "Election");
+        if(!d.testConnection()){
+            JOptionPane.showMessageDialog(null, "Invalid Password", "Invalid Password", JOptionPane.ERROR_MESSAGE);
+            String link = JOptionPane.showInputDialog("Enter Google Acount Username: ");
+            while (link == null || link.equals("")) {
+                link = JOptionPane.showInputDialog("Enter Google Acount Username: ");
+            }
+            String password = JOptionPane.showInputDialog("Enter Google Acount Password: ");
+            while (password == null || link.equals("")) {
+                password = JOptionPane.showInputDialog("Please Enter Acount Password: ");
+            }
+            getDriveVals(link,password);
         }
         
+    }
+
+    public String getLink() {
+        return link;
     }
 
     public String getPassword() {
         return password;
     }
-
-    public String getlink() {
-        return link;
-    }
+    
+    
+    
 }

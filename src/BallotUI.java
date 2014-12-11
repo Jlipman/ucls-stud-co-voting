@@ -4,7 +4,7 @@ import java.awt.event.*;
 import java.awt.*;
 
 public class BallotUI implements ActionListener {
-
+//OLD, NOT USED ANYMORE
     private Setup setup;
     private JButton enter;
     private JButton quit;
@@ -54,8 +54,16 @@ public class BallotUI implements ActionListener {
 
     public void Managment() {
         setup = new Setup();
-        setup.getDriveVals();
-        helper = new HelperMethods(setup.getlink(), setup.getPassword());
+        String link = JOptionPane.showInputDialog("Enter Google Acount Username: ");
+        while (link == null || link.equals("")) {
+            link = JOptionPane.showInputDialog("Enter Google Acount Username: ");
+        }
+        String password = JOptionPane.showInputDialog("Enter Google Acount Password: ");
+        while (password == null || link.equals("")) {
+            password = JOptionPane.showInputDialog("Please Enter Acount Password: ");
+        }
+        setup.getDriveVals(link,password);
+        helper = new HelperMethods(setup.getLink(), setup.getPassword());
         setup.inputCands();
 
     }

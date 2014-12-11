@@ -29,6 +29,8 @@ public class Driver extends javax.swing.JFrame {
         StudentVoterB = new javax.swing.JButton();
         ResultsB = new javax.swing.JButton();
         SchoolLogo = new javax.swing.JLabel();
+        Password = new javax.swing.JPasswordField();
+        Username = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 0, 0));
@@ -67,32 +69,60 @@ public class Driver extends javax.swing.JFrame {
         SchoolLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         SchoolLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SchoolLogo.gif"))); // NOI18N
 
+        Password.setText("jPasswordField1");
+        Password.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PasswordMouseClicked(evt);
+            }
+        });
+
+        Username.setText("Username");
+        Username.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                UsernameMouseClicked(evt);
+            }
+        });
+        Username.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UsernameActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(SetupB)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ResultsB)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(SetupB)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ResultsB))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 250, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(SchoolLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Username)
+                            .addComponent(Password)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(StudentVoterB)
+                                .addGap(51, 51, 51)))
+                        .addGap(0, 251, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(148, Short.MAX_VALUE)
-                .addComponent(SchoolLogo)
-                .addContainerGap(148, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(StudentVoterB)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(SchoolLogo)
-                .addGap(36, 36, 36)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(StudentVoterB)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
+                .addComponent(Username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SetupB)
                     .addComponent(ResultsB))
@@ -108,22 +138,37 @@ public class Driver extends javax.swing.JFrame {
 
     private void SetupBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SetupBMouseClicked
         this.dispose();
-        Setup.main();
+        Setup.main(Username.getText(),Password.getText());
     }//GEN-LAST:event_SetupBMouseClicked
 
     private void StudentVoterBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StudentVoterBMouseClicked
+
         this.dispose();
         Setup setup = new Setup();
-        setup.getDriveVals();
-        HelperMethods helper = new HelperMethods(setup.getlink(), setup.getPassword());
+        String usernameT = Username.getText();
+        String passwordT = Password.getText();
+        setup.getDriveVals(usernameT,passwordT);
+        HelperMethods helper = new HelperMethods(usernameT, passwordT);
         setup.inputCands();
         CodeValidationGUI.main(setup, helper);
     }//GEN-LAST:event_StudentVoterBMouseClicked
 
     private void ResultsBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResultsBMouseClicked
         this.dispose();
-        Results.main();
+        Results.main(Username.getText(),Password.getText());
     }//GEN-LAST:event_ResultsBMouseClicked
+
+    private void UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UsernameActionPerformed
+
+    private void UsernameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsernameMouseClicked
+        Username.setText("");
+    }//GEN-LAST:event_UsernameMouseClicked
+
+    private void PasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PasswordMouseClicked
+        Password.setText("");
+    }//GEN-LAST:event_PasswordMouseClicked
 
     /**
      * @param args the command line arguments
@@ -162,9 +207,11 @@ public class Driver extends javax.swing.JFrame {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField Password;
     private javax.swing.JButton ResultsB;
     private javax.swing.JLabel SchoolLogo;
     private javax.swing.JButton SetupB;
     private javax.swing.JButton StudentVoterB;
+    private javax.swing.JTextField Username;
     // End of variables declaration//GEN-END:variables
 }
