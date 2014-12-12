@@ -154,27 +154,7 @@ public class Results {
         }
         int biggest = 0;
         int indexofbiggest = 0;
-        for(int j=0; j<3;j++){
-            biggest = 0;
-            indexofbiggest = 0;
-            for (int i = 0; i < candidates[j][1].size(); i++) {
-                if ((Integer)candidates[j][1].get(i) > biggest) {
-                    biggest = (Integer)candidates[j][1].get(i);
-                    indexofbiggest = i;
-                }
-            }
-            try {
-                writer.write(positions[j] + candidates[j][0].get(indexofbiggest));
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-            System.out.println(candidates[j][0].get(indexofbiggest));
-            for (int y = 0; y < candidates[j][0].size(); y++) {
-                results.set((j*2)+6, y + 1, candidates[j][0].get(y).toString());
-            }
-            for (int y = 0; y < candidates[j][1].size(); y++) {
-                results.set((j*2)+7, y + 1, "" + candidates[j][1].get(y).toString());
-            }
+        for(int j=0; j<4;j++){
             if(j==3){
                 candidates[2][0].remove(indexofbiggest);
                 candidates[2][1].remove(indexofbiggest);
@@ -188,11 +168,33 @@ public class Results {
                     }
                 }
                 try {
-                    writer.write(positions[2] + candidates[2][0].get(indexofbiggest));
+                    writer.write(positions[2] + candidates[2][0].get(indexofbiggest) + "\n");
                 } catch (Exception e) {
                     System.out.println(e);
                 }
+                continue;
             }
+            biggest = 0;
+            indexofbiggest = 0;
+            for (int i = 0; i < candidates[j][1].size(); i++) {
+                if ((Integer)candidates[j][1].get(i) > biggest) {
+                    biggest = (Integer)candidates[j][1].get(i);
+                    indexofbiggest = i;
+                }
+            }
+            try {
+                writer.write(positions[j] + " " + candidates[j][0].get(indexofbiggest) + "\n");
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+            System.out.println(candidates[j][0].get(indexofbiggest));
+            for (int y = 0; y < candidates[j][0].size(); y++) {
+                results.set((j*2)+6, y + 1, candidates[j][0].get(y).toString());
+            }
+            for (int y = 0; y < candidates[j][1].size(); y++) {
+                results.set((j*2)+7, y + 1, "" + candidates[j][1].get(y).toString());
+            }
+            
         }
         /*
         
