@@ -134,7 +134,6 @@ public class CodeValidationGUI extends javax.swing.JFrame {
     private void vote(){
         if (helper.checkIfValid(codeEntry.getText())) {
                
-                JOptionPane.showMessageDialog(null, "Success!");
                 code = codeEntry.getText();
                 this.dispose();
                 //adds candidate selection dialog

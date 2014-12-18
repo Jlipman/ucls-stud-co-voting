@@ -75,7 +75,8 @@ public class Setup {
         } catch (Exception e) {
             System.out.println(e);
         }
-        String chars = "1234567890qwertyuiopasdfghjkzxcvbnmQWERTYUOPASFGHJKLZXCVBNM";
+        System.out.println("Generating and writing codes");
+        String chars = "123456789qwertyuiopasdfghjkzxcvbnmQWERTYUPASFGHJKLZXCVBNM";
         int length = 0;
 
         int numberOfVoters = Integer.parseInt(JOptionPane.showInputDialog("Number of voters: "));
@@ -107,7 +108,7 @@ public class Setup {
             d.set(i, length + 1, "stop");
         }
         System.out.println("setting up document");
-        for (int i = 1; i < 11; i++) {
+        for (int i = 1; i < 20; i++) {
             for(int k=6; k<12; k++){
                 d.set(k, i, "0");
             }

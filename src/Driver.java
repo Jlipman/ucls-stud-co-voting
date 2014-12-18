@@ -68,6 +68,7 @@ public class Driver extends javax.swing.JFrame {
         SchoolLogo.setBackground(new java.awt.Color(153, 0, 0));
         SchoolLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         SchoolLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SchoolLogo.gif"))); // NOI18N
+        SchoolLogo.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         Password.setText("jPasswordField1");
         Password.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -100,7 +101,7 @@ public class Driver extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ResultsB))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 250, Short.MAX_VALUE)
+                        .addGap(0, 249, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(SchoolLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(Username)
@@ -108,7 +109,7 @@ public class Driver extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(StudentVoterB)
                                 .addGap(51, 51, 51)))
-                        .addGap(0, 251, Short.MAX_VALUE)))
+                        .addGap(0, 250, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -122,7 +123,7 @@ public class Driver extends javax.swing.JFrame {
                 .addComponent(Username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SetupB)
                     .addComponent(ResultsB))

@@ -45,7 +45,7 @@
                       <Component id="ResultsB" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <EmptySpace min="0" pref="250" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="249" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="SchoolLogo" alignment="0" max="32767" attributes="0"/>
                           <Component id="Username" alignment="0" max="32767" attributes="0"/>
@@ -55,7 +55,7 @@
                               <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="251" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="250" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -73,7 +73,7 @@
               <Component id="Username" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="Password" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="92" max="32767" attributes="0"/>
+              <EmptySpace pref="90" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="SetupB" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="ResultsB" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -117,6 +117,11 @@
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/SchoolLogo.gif"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+            <TitledBorder/>
+          </Border>
         </Property>
       </Properties>
     </Component>

@@ -152,8 +152,14 @@ private Setup setup;
                 ballot.setVp(vpresult);
                 ballot.setCu1(curesult);
                 ballot.setCu2(result);
-                helper.vote(ballot, code);
-                JOptionPane.showMessageDialog(this, "Vote Submitted");
+                Thread thread;
+                thread = new Thread(){
+                    public void run(){
+                        helper.vote(ballot, code);
+                    }
+                };
+                thread.start();
+                
                 this.dispose();
                 //finish and restart
             }
@@ -162,6 +168,7 @@ private Setup setup;
         }
     }
     
+
     /**
      * @param args the command line arguments
      */
