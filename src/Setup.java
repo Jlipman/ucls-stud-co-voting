@@ -123,7 +123,7 @@ public class Setup {
 
         System.out.println(foo);
         Email emailer = new Email(link, password);
-        emailer.sendEmail("Enclosed are the codes for the next election. There are "+numberOfVoters+ "of them. \nEnjoy. \n Jonathan Lipman", "Codes.txt");
+        emailer.sendEmail("Enclosed are the codes for the next election. There are " + numberOfVoters + " of them. \nEnjoy. \n Jonathan Lipman", "Codes.txt");
     }
 
     public ArrayList<String> getPresCandidates() {
@@ -145,20 +145,8 @@ public class Setup {
 
         d = new Drive(link, password, "Election");
         if (!d.testConnection()) {
-            JOptionPane.showMessageDialog(null, "Invalid Password", "Invalid Password", JOptionPane.ERROR_MESSAGE);
-            String link = JOptionPane.showInputDialog("Enter Google Acount Username: ");
-            while (link == null || link.equals("")) {
-                link = JOptionPane.showInputDialog("Enter Google Acount Username: ");
-            }
-            String password = JOptionPane.showInputDialog("Enter Google Acount Password: ");
-            while (password == null || link.equals("")) {
-                password = JOptionPane.showInputDialog("Please Enter Acount Password: ");
-            }
-            link = U;
-
-            password = P;
-
-            d = new Drive(link, password, "Election");
+            JOptionPane.showMessageDialog(null, "Invalid Password. Please Restart Program", "Invalid Password. Please Restart Program", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
 
         }
 

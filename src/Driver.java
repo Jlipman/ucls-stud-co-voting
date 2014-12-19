@@ -1,3 +1,10 @@
+
+import java.awt.Color;
+import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,6 +21,7 @@ public class Driver extends javax.swing.JFrame {
      */
     public Driver() {
         initComponents();
+        this.getContentPane().setBackground(Color.WHITE);
     }
 
     /**
@@ -40,6 +48,8 @@ public class Driver extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(764, 500));
 
         SetupB.setText("Run Setup");
+        SetupB.setForeground(Color.BLACK);
+        SetupB.setBackground(Color.WHITE);
         SetupB.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 SetupBStateChanged(evt);
@@ -52,6 +62,8 @@ public class Driver extends javax.swing.JFrame {
         });
 
         StudentVoterB.setText("Run Student Voter");
+        StudentVoterB.setForeground(Color.BLACK);
+        StudentVoterB.setBackground(Color.WHITE);
         StudentVoterB.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 StudentVoterBMouseClicked(evt);
@@ -59,16 +71,17 @@ public class Driver extends javax.swing.JFrame {
         });
 
         ResultsB.setText("Run Results");
+        ResultsB.setForeground(Color.BLACK);
+        ResultsB.setBackground(Color.WHITE);
         ResultsB.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ResultsBMouseClicked(evt);
             }
         });
 
-        SchoolLogo.setBackground(new java.awt.Color(153, 0, 0));
+        SchoolLogo.setBackground(new java.awt.Color(0, 0, 0));
         SchoolLogo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         SchoolLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/SchoolLogo.gif"))); // NOI18N
-        SchoolLogo.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         Password.setText("jPasswordField1");
         Password.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -101,7 +114,7 @@ public class Driver extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ResultsB))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 249, Short.MAX_VALUE)
+                        .addGap(0, 250, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(SchoolLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(Username)
@@ -109,7 +122,7 @@ public class Driver extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(StudentVoterB)
                                 .addGap(51, 51, 51)))
-                        .addGap(0, 250, Short.MAX_VALUE)))
+                        .addGap(0, 251, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -123,7 +136,7 @@ public class Driver extends javax.swing.JFrame {
                 .addComponent(Username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SetupB)
                     .addComponent(ResultsB))
@@ -139,8 +152,8 @@ public class Driver extends javax.swing.JFrame {
 
     private void SetupBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SetupBMouseClicked
         this.dispose();
-        String link=Username.getText();
-        String password=Password.getText();
+        String link = Username.getText();
+        String password = Password.getText();
         Setup.main(link, password);
     }//GEN-LAST:event_SetupBMouseClicked
 
@@ -150,7 +163,7 @@ public class Driver extends javax.swing.JFrame {
         Setup setup = new Setup();
         String usernameT = Username.getText();
         String passwordT = Password.getText();
-        setup.getDriveVals(usernameT,passwordT);
+        setup.getDriveVals(usernameT, passwordT);
         HelperMethods helper = new HelperMethods(usernameT, passwordT);
         setup.inputCands();
         CodeValidationGUI.main(setup, helper);
@@ -158,7 +171,7 @@ public class Driver extends javax.swing.JFrame {
 
     private void ResultsBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ResultsBMouseClicked
         this.dispose();
-        Results.main(Username.getText(),Password.getText());
+        Results.main(Username.getText(), Password.getText());
     }//GEN-LAST:event_ResultsBMouseClicked
 
     private void UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsernameActionPerformed
@@ -208,7 +221,7 @@ public class Driver extends javax.swing.JFrame {
         });
     }
 
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField Password;
     private javax.swing.JButton ResultsB;

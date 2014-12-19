@@ -1,4 +1,5 @@
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /*
@@ -19,6 +20,7 @@ public class CodeValidationGUI extends javax.swing.JFrame {
      */
     public CodeValidationGUI(Setup toSetup, HelperMethods h) {
         initComponents();
+        this.getContentPane().setBackground(Color.WHITE);
         setup=toSetup;
         helper=h;
     }
@@ -42,6 +44,8 @@ public class CodeValidationGUI extends javax.swing.JFrame {
         setLocation(new java.awt.Point(100, 100));
 
         Submit.setText("Enter");
+        Submit.setForeground(Color.BLACK);
+        Submit.setBackground(Color.WHITE);
         Submit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SubmitActionPerformed(evt);
@@ -49,7 +53,6 @@ public class CodeValidationGUI extends javax.swing.JFrame {
         });
 
         codeEntry.setText("Enter your 6 digit code");
-        codeEntry.setOpaque(true);
         codeEntry.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 codeEntryMouseClicked(evt);
@@ -62,6 +65,8 @@ public class CodeValidationGUI extends javax.swing.JFrame {
         });
 
         quit.setText("End Voting");
+        quit.setForeground(Color.BLACK);
+        quit.setBackground(Color.WHITE);
         quit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 quitMouseClicked(evt);
@@ -76,14 +81,14 @@ public class CodeValidationGUI extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(260, Short.MAX_VALUE)
+                .addContainerGap(300, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(codeEntry, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Submit))
                     .addComponent(SchoolLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(354, Short.MAX_VALUE))
+                .addContainerGap(300, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(quit, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -113,7 +118,7 @@ public class CodeValidationGUI extends javax.swing.JFrame {
     private void codeEntryKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codeEntryKeyTyped
         if(evt.getKeyCode()==13){
             vote();
-            System.out.println("fp");
+            System.out.println("enter");
         }
     }//GEN-LAST:event_codeEntryKeyTyped
 
