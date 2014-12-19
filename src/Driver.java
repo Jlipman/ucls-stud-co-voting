@@ -139,7 +139,9 @@ public class Driver extends javax.swing.JFrame {
 
     private void SetupBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SetupBMouseClicked
         this.dispose();
-        Setup.main(Username.getText(),Password.getText());
+        String link=Username.getText();
+        String password=Password.getText();
+        Setup.main(link, password);
     }//GEN-LAST:event_SetupBMouseClicked
 
     private void StudentVoterBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StudentVoterBMouseClicked

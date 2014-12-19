@@ -1,3 +1,4 @@
+
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
@@ -21,7 +22,6 @@ public class Setup {
     private String link;
     private String password;
     private Drive d;
-    
 
     public Setup() {
         presc = new ArrayList<String>();
@@ -34,34 +34,31 @@ public class Setup {
         password = "";
     }
 
-    public void inputCands(){
-        int position=0;
+    public void inputCands() {
+        int position = 0;
         Path path = Paths.get("candidates.txt");
-        try (Scanner scanner =  new Scanner(path)){
-          while (scanner.hasNextLine()){
-              String line=scanner.nextLine();
-              if(line.isEmpty()){
-                  position++;
-              }else if (position==0){
-                  presc.add(line);
-              }else if(position==1){
-                  vpc.add(line);
-              }else if(position==2){
-                  cuc.add(line);
-              }
-          }      
-        }catch(Exception e){}
+        try (Scanner scanner = new Scanner(path)) {
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                if (line.isEmpty()) {
+                    position++;
+                } else if (position == 0) {
+                    presc.add(line);
+                } else if (position == 1) {
+                    vpc.add(line);
+                } else if (position == 2) {
+                    cuc.add(line);
+                }
+            }
+        } catch (Exception e) {
+        }
     }
 
- 
-
     public static void main(String U, String P) {
-        
- 
-        
+
         ArrayList<String> foo = new ArrayList<String>();
-        String link=U;
-        String password=P;
+        String link = U;
+        String password = P;
         Drive d;
 
         d = new Drive(link, password, "Election");
@@ -80,17 +77,18 @@ public class Setup {
         int length = 0;
 
         int numberOfVoters = Integer.parseInt(JOptionPane.showInputDialog("Number of voters: "));
-        
+        DriveNewThreadSet newThread = new DriveNewThreadSet(d);
         for (int j = 1; j < numberOfVoters + 1; j++) {
             String next = "";
             for (int i = 0; i < 6; i++) {
                 char c = chars.charAt(R.nextInt(chars.length()));
                 next += c;
             }
-            //we should probably use loops for some of this
+
             d.set(1, j, next);
-            for(int i=2; i<6; i++){
-                d.set(i, j, "0");
+
+            for (int i = 2; i < 6; i++) {
+                newThread.set(i, j, "0");
             }
             try {
                 writer.write(next + "\n");
@@ -100,19 +98,21 @@ public class Setup {
             foo.add(next);
             length = j;
             System.out.println(j + "/" + (numberOfVoters));
-           
-            
-            
+
         }
-        for(int i=1; i<6; i++){
+        for (int i = 1; i < 6; i++) {
             d.set(i, length + 1, "stop");
         }
         System.out.println("setting up document");
         for (int i = 1; i < 20; i++) {
-            for(int k=6; k<12; k++){
-                d.set(k, i, "0");
+            for (int k = 6; k < 12; k++) {
+                if (k % 10 == 0) {
+                    d.set(k, i, "0");
+                } else {
+                    newThread.set(k, i, "0");
+                }
             }
-            System.out.println(i + "/10");
+            System.out.println(i + "/20");
         }
         try {
             writer.flush();
@@ -122,6 +122,8 @@ public class Setup {
         }
 
         System.out.println(foo);
+        Email emailer = new Email(link, password);
+        emailer.sendEmail("Enclosed are the codes for the next election. There are "+numberOfVoters+ "of them. \nEnjoy. \n Jonathan Lipman", "Codes.txt");
     }
 
     public ArrayList<String> getPresCandidates() {
@@ -138,11 +140,11 @@ public class Setup {
 
     public void getDriveVals(String U, String P) {
         link = U;
-        
+
         password = P;
 
         d = new Drive(link, password, "Election");
-        if(!d.testConnection()){
+        if (!d.testConnection()) {
             JOptionPane.showMessageDialog(null, "Invalid Password", "Invalid Password", JOptionPane.ERROR_MESSAGE);
             String link = JOptionPane.showInputDialog("Enter Google Acount Username: ");
             while (link == null || link.equals("")) {
@@ -152,9 +154,14 @@ public class Setup {
             while (password == null || link.equals("")) {
                 password = JOptionPane.showInputDialog("Please Enter Acount Password: ");
             }
-            getDriveVals(link,password);
+            link = U;
+
+            password = P;
+
+            d = new Drive(link, password, "Election");
+
         }
-        
+
     }
 
     public String getLink() {
@@ -164,7 +171,5 @@ public class Setup {
     public String getPassword() {
         return password;
     }
-    
-    
-    
+
 }

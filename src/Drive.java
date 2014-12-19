@@ -4,6 +4,8 @@ import com.google.gdata.data.spreadsheet.CellFeed;
 import com.google.gdata.data.spreadsheet.SpreadsheetEntry;
 import com.google.gdata.data.spreadsheet.SpreadsheetFeed;
 import com.google.gdata.data.spreadsheet.WorksheetEntry;
+import com.google.gdata.util.ServiceException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -59,7 +61,7 @@ public class Drive {
                 }
             }
         } catch (Exception e) {
-            System.out.println(e);
+            set(x,y,value);
         }
     }
 
@@ -75,8 +77,8 @@ public class Drive {
                 }
             }
 
-        } catch (Exception e) {
-            System.out.println(e);
+        } catch (IOException | ServiceException e) {
+            return get(x, y);
         }
         return values;
     }

@@ -20,7 +20,7 @@ public class Results {
         setup.getDriveVals(link,password);
         Drive results = new Drive(link, password, "Election");
         ArrayList[][] candidates = new ArrayList[4][2];
-        
+        DriveNewThreadSet newThread = new DriveNewThreadSet(results);
 
         String[] current = new String[4];
         
@@ -132,9 +132,7 @@ public class Results {
             }
             System.out.println(candidates[j][0].get(indexofbiggest));
             for (int y = 0; y < candidates[j][0].size(); y++) {
-                results.set((j*2)+6, y + 1, candidates[j][0].get(y).toString());
-            }
-            for (int y = 0; y < candidates[j][1].size(); y++) {
+                newThread.set((j*2)+6, y + 1, candidates[j][0].get(y).toString());
                 results.set((j*2)+7, y + 1, "" + candidates[j][1].get(y).toString());
             }
             
@@ -147,7 +145,8 @@ public class Results {
         } catch (Exception e) {
             System.out.println(e);
         }
-
+        Email emailer = new Email(link, password);
+        emailer.sendEmail("Enclosed are the winners of the Election. \nThank you for using my software. If you find any bugs please contact me. \n Jonathan Lipman", "Winners.txt");
         System.out.println("go online to check winners");
     }
 

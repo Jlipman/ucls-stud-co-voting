@@ -10,7 +10,6 @@ import javax.swing.JOptionPane;
  *
  * @author Lipman
  */
-//Large work in progress
 public class CodeValidationGUI extends javax.swing.JFrame {
     private Setup setup;
     private HelperMethods helper;
