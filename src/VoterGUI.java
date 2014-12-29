@@ -164,6 +164,7 @@ private Setup setup;
                 thread.start();
                 
                 this.dispose();
+                CodeValidationGUI.main(setup, helper);
                 //finish and restart
             }
         } else {

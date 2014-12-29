@@ -143,7 +143,6 @@ public class CodeValidationGUI extends javax.swing.JFrame {
                 //adds candidate selection dialog
                 
                 
-                main(setup, helper);
                 VoterGUI.main(setup, helper, code);
 
             } else {
