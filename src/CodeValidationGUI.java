@@ -127,9 +127,14 @@ public class CodeValidationGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_codeEntryMouseClicked
 
     private void quitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_quitMouseClicked
+        System.out.println(Thread.activeCount());
         String input = JOptionPane.showInputDialog(null, "Enter Google Drive Password: ");
         if (input.equals(setup.getPassword())) {
-            System.exit(0);
+            if(Thread.activeCount()>2){
+                JOptionPane.showInputDialog(null, "Still Writing Election Results. Please quit later.");
+            }else{
+                System.exit(0);
+            }
         } else {
             JOptionPane.showMessageDialog(this, "Wrong Password!");
         }
